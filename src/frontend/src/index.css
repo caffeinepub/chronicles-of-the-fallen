@@ -1,0 +1,230 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.25rem;
+    --background: 0.13 0.018 255;
+    --foreground: 0.92 0.008 255;
+    --card: 0.16 0.022 255;
+    --card-foreground: 0.92 0.008 255;
+    --popover: 0.16 0.022 255;
+    --popover-foreground: 0.92 0.008 255;
+    --primary: 0.72 0.12 80;
+    --primary-foreground: 0.13 0.018 255;
+    --secondary: 0.2 0.025 255;
+    --secondary-foreground: 0.92 0.008 255;
+    --muted: 0.2 0.02 250;
+    --muted-foreground: 0.55 0.012 255;
+    --accent: 0.72 0.12 80;
+    --accent-foreground: 0.13 0.018 255;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.28 0.03 255;
+    --input: 0.22 0.025 255;
+    --ring: 0.72 0.12 80;
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.14 0.02 255;
+    --sidebar-foreground: 0.92 0.008 255;
+    --sidebar-primary: 0.72 0.12 80;
+    --sidebar-primary-foreground: 0.13 0.018 255;
+    --sidebar-accent: 0.2 0.025 255;
+    --sidebar-accent-foreground: 0.92 0.008 255;
+    --sidebar-border: 0.28 0.03 255;
+    --sidebar-ring: 0.72 0.12 80;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Crimson Text", Georgia, serif;
+    background: radial-gradient(
+      ellipse at top,
+      oklch(0.16 0.03 255) 0%,
+      oklch(0.1 0.015 255) 100%
+    );
+    min-height: 100vh;
+  }
+}
+
+.font-cinzel {
+  font-family: "Cinzel", "Times New Roman", serif;
+}
+.font-crimson {
+  font-family: "Crimson Text", Georgia, serif;
+}
+
+.gold-button {
+  background: linear-gradient(
+    135deg,
+    #c89a3c 0%,
+    #e0b75a 40%,
+    #c89a3c 70%,
+    #9b7128 100%
+  );
+  border: 1px solid #e0b75a;
+  color: #0b0f16;
+  font-family: "Cinzel", serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 700;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 12px rgba(200, 154, 60, 0.3), inset 0 1px 0
+    rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+}
+.gold-button:hover {
+  background: linear-gradient(
+    135deg,
+    #e0b75a 0%,
+    #f0cb6a 40%,
+    #e0b75a 70%,
+    #c89a3c 100%
+  );
+  box-shadow: 0 0 24px rgba(200, 154, 60, 0.5), inset 0 1px 0
+    rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.gothic-card {
+  background: linear-gradient(
+    145deg,
+    oklch(0.17 0.025 255) 0%,
+    oklch(0.14 0.02 255) 100%
+  );
+  border: 1px solid oklch(0.3 0.04 255);
+  box-shadow: 0 0 0 1px oklch(0.22 0.03 255), 0 4px 24px
+    oklch(0.08 0.02 255 / 0.8), inset 0 1px 0 oklch(0.35 0.05 80 / 0.15);
+  position: relative;
+}
+.gothic-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    oklch(0.35 0.06 80 / 0.06) 0%,
+    transparent 50%
+  );
+  pointer-events: none;
+}
+
+.ornate-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.ornate-divider::before,
+.ornate-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    oklch(0.72 0.12 80 / 0.5),
+    transparent
+  );
+}
+
+.parchment-panel {
+  background: linear-gradient(
+    145deg,
+    oklch(0.18 0.022 255) 0%,
+    oklch(0.15 0.018 255) 50%,
+    oklch(0.18 0.022 255) 100%
+  );
+  border: 1px solid oklch(0.35 0.05 80 / 0.3);
+  box-shadow: 0 0 60px oklch(0.1 0.01 255 / 0.8), inset 0 0 40px
+    oklch(0.08 0.01 255 / 0.5), 0 0 0 1px oklch(0.25 0.03 255);
+}
+
+.screen-fade-in {
+  animation: screenFadeIn 0.6s ease-out forwards;
+}
+@keyframes screenFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.choice-btn {
+  background: linear-gradient(
+    145deg,
+    oklch(0.19 0.028 255) 0%,
+    oklch(0.16 0.022 255) 100%
+  );
+  border: 1px solid oklch(0.32 0.04 255);
+  font-family: "Crimson Text", serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.04em;
+  transition: all 0.3s ease;
+  color: oklch(0.88 0.01 255);
+  text-align: left;
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+}
+.choice-btn:hover {
+  border-color: oklch(0.72 0.12 80 / 0.6);
+  background: linear-gradient(
+    145deg,
+    oklch(0.22 0.03 255) 0%,
+    oklch(0.18 0.025 255) 100%
+  );
+  box-shadow: 0 0 20px oklch(0.72 0.12 80 / 0.15);
+  color: oklch(0.92 0.015 80);
+  transform: translateX(4px);
+}
+
+.nav-link {
+  font-family: "Cinzel", serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  color: oklch(0.65 0.01 255);
+  text-transform: uppercase;
+  transition: color 0.2s;
+  cursor: pointer;
+  background: none;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.nav-link:hover {
+  color: oklch(0.8 0.1 80);
+}
+
+.chapter-progress-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid oklch(0.45 0.05 80 / 0.6);
+  transition: all 0.3s;
+  background: transparent;
+}
+.chapter-progress-dot.active {
+  background: oklch(0.72 0.12 80);
+  box-shadow: 0 0 8px oklch(0.72 0.12 80 / 0.7);
+  border-color: oklch(0.8 0.1 80);
+}
+.chapter-progress-dot.completed {
+  background: oklch(0.55 0.09 80 / 0.7);
+  border-color: oklch(0.65 0.1 80 / 0.6);
+}
